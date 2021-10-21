@@ -58,10 +58,10 @@ class MainActivity : AppCompatActivity() {
         val apiInterface = APIClient().getClient()?.create(APIinterface::class.java)
 
         var st =""
-        apiInterface?.addUser(f)?.enqueue(object : Callback<> {
+        apiInterface?.addUser(f)?.enqueue(object : Callback<Users> {
             override fun onResponse(
-                call: Call<st>,
-                response: Response<>
+                call: Call<Users>,
+                response: Response<Users>
             ) {
 
                 onResult()
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-            override fun onFailure(call: Call<>, t: Throwable) {
+            override fun onFailure(call: Call<Users>, t: Throwable) {
                 onResult()
                 Toast.makeText(applicationContext, "Error!", Toast.LENGTH_SHORT).show();
 
